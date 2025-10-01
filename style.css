@@ -83,7 +83,7 @@ header {
 }
 
 .desktop-nav ul li a:hover {
-    color: var(--primary);
+    color: #866605;
 }
 
 .btn-agendar {
@@ -97,7 +97,6 @@ header {
 
 .btn-agendar:hover {
     background-color: #c19d2e;
-    color: var(--secondary);
 }
 
 /* Menu Hamburguer */
@@ -195,7 +194,7 @@ header {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/banner.png');
     background-size: cover;
     background-position: center;
     color: var(--light);
@@ -228,10 +227,11 @@ header {
     text-decoration: none;
     transition: background-color 0.3s;
     display: inline-block;
+     box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.116);
 }
 
 .btn-hero:hover {
-    background-color: #c19d2e;
+    background-color: #b38d1c;
 }
 
 /* Serviços */
@@ -309,7 +309,7 @@ header {
 
 /* Sobre */
 .sobre {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background-color: var(--secondary);
     color: var(--light);
 }
@@ -319,24 +319,24 @@ header {
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
-}
-
-.sobre-img {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin: 0px 80px;
 }
 
 .sobre-img img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 360px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.116);
 }
 
 .sobre-text h2 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
     color: var(--primary);
+}
+
+.sobre-text p {
+    font-size: 1.2rem;
 }
 
 /* Agendamento */
@@ -579,7 +579,7 @@ footer {
     .hero p {
         font-size: 0.9rem;
     }
-    
+
     .section-title h2 {
         font-size: 1.5rem;
     }
