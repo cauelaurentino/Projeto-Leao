@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -29,13 +28,11 @@
                 </ul>
             </nav>
             
-            <!-- Botão do menu hamburguer -->
             <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
                 <span class="hamburger"></span>
             </button>
         </div>
         
-        <!-- Menu mobile -->
         <nav class="mobile-nav">
             <ul>
                 <li><a href="index.html">Início</a></li>
@@ -47,43 +44,22 @@
         </nav>
     </header>
 
-    <!-- Seção de Login -->
     <section class="login-section">
         <div class="login-wrapper">
             <div class="login-container">
                 <h2 class="login-title">Acesse sua conta</h2>
-                <form class="login-form">
+                
+                <form class="login-form" id="form-login">
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" name="email" required placeholder="seu@email.com">
                     </div>
                     <div class="form-group">
-                        <label for="password">Senha</label>
-                        <input type="password" id="password" name="password" required placeholder="Sua senha">
+                        <label for="senha">Senha</label>
+                        <input type="password" id="senha" name="password" required placeholder="Sua senha">
                     </div>
-                    <!-- <div class="login-options">
-                        <div class="remember-me">
-                            <input type="checkbox" id="remember" name="remember">
-                            <label for="remember">Lembrar-me</label>
-                        </div>
-                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
-                    </div> -->
-
                     <button type="submit" class="btn-login">Entrar</button>
                 </form> 
-                
-                <!-- <div class="social-login">
-                    <p>Ou entre com</p>
-                    <div class="social-buttons">
-                            <a href="#" class="social-btn google">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-btn facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </div>
-                </div> -->
-                
                 <div class="register-link">
                     <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
                 </div>
@@ -91,7 +67,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contato">
         <div class="container">
             <div class="footer-content">

@@ -9,187 +9,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Estilos específicos para a página de agendamentos */
-
-        .agendamentos-section {
-            padding: 5rem 0;
-            min-height: 70vh;
-        }
-        
-        .agendamentos-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .agendamentos-filtros {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .filtro-btn {
-            background-color: var(--secondary);
-            color: var(--light);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .filtro-btn.active {
-            background-color: var(--primary);
-            color: var(--secondary);
-        }
-        
-        .filtro-btn:hover {
-            background-color: var(--primary);
-            color: var(--secondary);
-        }
-        
-        .agendamentos-lista {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .agendamento-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .agendamento-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .agendamento-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-        }
-        
-        .agendamento-info p {
-            color: var(--gray);
-            margin-bottom: 0.5rem;
-        }
-        
-        .agendamento-status {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 0.5rem;
-        }
-        
-        .status-badge {
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        .status-confirmado {
-            background-color: #d4edda;
-            color: #155724;
-        }
-        
-        .status-pendente {
-            background-color: #fff3cd;
-            color: #856404;
-        }
-        
-        .status-cancelado {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        
-        .status-concluido {
-            background-color: #d1ecf1;
-            color: #0c5460;
-        }
-        
-        .btn-acao {
-            background-color: var(--secondary);
-            color: var(--light);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 0.9rem;
-        }
-        
-        .btn-acao:hover {
-            background-color: var(--primary);
-            color: var(--secondary);
-        }
-        
-        .sem-agendamentos {
-            text-align: center;
-            padding: 3rem;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .sem-agendamentos i {
-            font-size: 3rem;
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-        
-        .sem-agendamentos h3 {
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-        
-        .sem-agendamentos p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-        }
-        
-        .btn-agendar-novo {
-            background-color: var(--primary);
-            color: var(--secondary);
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: background-color 0.3s;
-        }
-        
-        .btn-agendar-novo:hover {
-            background-color: #b38d1c;
-        }
-        
-        @media (max-width: 768px) {
-            .agendamento-card {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
-            
-            .agendamento-status {
-                align-items: flex-start;
-                width: 100%;
-            }
-            
-            .btn-acao {
-                width: 100%;
-                text-align: center;
-            }
-        }
+        .agendamentos-section { padding: 5rem 0; min-height: 70vh; }
+        .agendamentos-container { max-width: 1000px; margin: 0 auto; }
+        .agendamentos-lista { display: flex; flex-direction: column; gap: 1.5rem; }
+        .agendamento-card { background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .agendamento-info h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--secondary); }
+        .agendamento-info p { color: var(--gray); margin-bottom: 0.5rem; }
+        .agendamento-status { text-align: right; }
+        .status-badge { padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; text-transform: capitalize; }
+        .status-confirmado { background-color: #d4edda; color: #155724; }
+        .status-cancelado { background-color: #f8d7da; color: #721c24; }
+        .status-concluido { background-color: #d1ecf1; color: #0c5460; }
+        .sem-agendamentos { text-align: center; padding: 3rem; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .sem-agendamentos i { font-size: 3rem; color: var(--gray); margin-bottom: 1rem; }
+        .sem-agendamentos h3 { color: var(--secondary); margin-bottom: 1rem; }
+        .sem-agendamentos p { color: var(--gray); margin-bottom: 1.5rem; }
+        .btn-agendar-novo { background-color: var(--primary); color: var(--secondary); padding: 0.8rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 600; display: inline-block; }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -197,65 +35,29 @@
                 <i class="fas fa-lion logo-icon"></i>
                 <h1>Barbearia do Leão</h1>
             </div>
-            
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="index.html#servicos">Serviços</a></li>
-                    <li><a href="index.html#sobre">Sobre</a></li>
-                    <li><a href="meus-agendamentos.html" class="selected">Meus agendamentos</a></li>
-                    <li><a href="login.html" class="btn-agendar">Login</a></li>
-                </ul>
+                    </ul>
             </nav>
-            
-            <!-- Botão do menu hamburguer -->
             <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
                 <span class="hamburger"></span>
             </button>
         </div>
-        
-        <!-- Menu mobile -->
         <nav class="mobile-nav">
             <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="index.html#servicos">Serviços</a></li>
-                <li><a href="index.html#sobre">Sobre</a></li>
-                <li><a href="meus-agendamentos.html">Meus agendamentos</a></li>
-                <li><a href="login.html" class="btn-agendar">Login</a></li>
-            </ul>
+                </ul>
         </nav>
     </header>
 
-    <!-- Seção Meus Agendamentos -->
     <section class="agendamentos-section" id="agendamentos">
         <div class="container agendamentos-container">
             <div class="section-title">
                 <h2>Meus Agendamentos</h2>
             </div>
             
-            <div class="agendamentos-filtros">
-                <button class="filtro-btn" data-filtro="confirmados">Confirmados</button>
-                <button class="filtro-btn" data-filtro="cancelados">Cancelados</button>
-            </div>
-            
             <div class="agendamentos-lista" id="lista-agendamentos">
-                <!-- Os agendamentos serão carregados aqui via JavaScript -->
-                
-                <!-- Exemplo de agendamento -->
-                <div class="agendamento-card" data-status="confirmado">
-                    <div class="agendamento-info">
-                        <h3>Corte de Cabelo + Barba</h3>
-                        <p><i class="far fa-calendar-alt"></i> 15 de Março de 2025</p>
-                        <p><i class="far fa-clock"></i> 14:00</p>
-                        <p><i class="fas fa-user"></i> João Silva</p>
-                    </div>
-                    <div class="agendamento-status">
-                        <span class="status-badge status-confirmado">Confirmado</span>
-                        <button class="btn-acao" onclick="cancelarAgendamento(1)">Cancelar</button>
-                    </div>
                 </div>
             
-            <!-- Mensagem quando não há agendamentos -->
             <div class="sem-agendamentos" id="sem-agendamentos" style="display: none;">
                 <i class="far fa-calendar-times"></i>
                 <h3>Nenhum agendamento encontrado</h3>
@@ -265,7 +67,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contato">
         <div class="container">
             <div class="footer-content">
@@ -298,78 +99,6 @@
         </div>
     </footer>
 
-    <script>
-        // Menu mobile toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mobileNav = document.querySelector('.mobile-nav');
-        
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-        });
-        
-        // Filtros de agendamentos
-        const filtroBtns = document.querySelectorAll('.filtro-btn');
-        const agendamentoCards = document.querySelectorAll('.agendamento-card');
-        
-        filtroBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove a classe active de todos os botões
-                filtroBtns.forEach(b => b.classList.remove('active'));
-                // Adiciona a classe active ao botão clicado
-                btn.classList.add('active');
-                
-                const filtro = btn.getAttribute('data-filtro');
-                
-                // Filtra os agendamentos
-                agendamentoCards.forEach(card => {
-                    if (filtro === 'todos') {
-                        card.style.display = 'flex';
-                    } else {
-                        const status = card.getAttribute('data-status');
-                        if (status === filtro) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    }
-                });
-                
-                // Verifica se há agendamentos visíveis
-                const agendamentosVisiveis = document.querySelectorAll('.agendamento-card[style="display: flex"]');
-                const semAgendamentos = document.getElementById('sem-agendamentos');
-                
-                if (agendamentosVisiveis.length === 0) {
-                    semAgendamentos.style.display = 'block';
-                } else {
-                    semAgendamentos.style.display = 'none';
-                }
-            });
-        });
-        
-        // Funções de exemplo para ações nos agendamentos
-        function cancelarAgendamento(id) {
-            if (confirm('Tem certeza que deseja cancelar este agendamento?')) {
-                alert('Agendamento cancelado com sucesso!');
-                // Aqui você implementaria a lógica real de cancelamento
-            }
-        }
-        
-        function agendarNovamente(id) {
-            alert('Redirecionando para a página de agendamento...');
-            // Aqui você implementaria o redirecionamento para a página de agendamento
-            // com os dados pré-preenchidos
-        }
-        
-        // Verificar se há agendamentos ao carregar a página
-        document.addEventListener('DOMContentLoaded', () => {
-            const agendamentos = document.querySelectorAll('.agendamento-card');
-            const semAgendamentos = document.getElementById('sem-agendamentos');
-            
-            if (agendamentos.length === 0) {
-                semAgendamentos.style.display = 'block';
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
