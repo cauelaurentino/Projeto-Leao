@@ -323,7 +323,10 @@ header {
 }
 
 .sobre-img img {
-    width: 360px;
+    width: 85%; /* 1. Faz a imagem se adaptar ao container */
+    max-width: 360px; /* 2. Define o tamanho máximo */
+    display: block; /* 3. Ajuda na centralização */
+    margin: 0 auto; /* 4. Centraliza a imagem */
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0px 0px 20px 10px rgba(255, 255, 255, 0.116);
@@ -456,6 +459,36 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Adicione este código para customizar e centralizar a seta dos selects */
+
+.form-group select {
+    /* 1. Remove a seta padrão do navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    
+    /* 2. Adiciona uma seta customizada (SVG) */
+    /* A cor da seta está em 'fill' (use %23 para cores hex, ex: %231a1a1a) */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%231a1a1a" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5H7z"/></svg>');
+    
+    /* 3. Garante que ela não se repita */
+    background-repeat: no-repeat;
+    
+    /* 4. Esta é a chave: posiciona a seta à direita e a centraliza verticalmente */
+    background-position: right 0.8rem center; 
+    
+    /* 5. Define um tamanho para a seta */
+    background-size: 1.2rem;
+
+    /* 6. Adiciona espaço à direita para o texto não sobrepor a seta */
+    padding-right: 2.5rem; 
+}
+
+/* 7. Corrige a renderização em alguns navegadores */
+.form-group select::-ms-expand {
+    display: none;
+}
+
 /* ========== MEDIA QUERIES ========== */
 
 /* Tablets (768px para baixo) */
@@ -491,10 +524,15 @@ footer {
     .sobre-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        margin: 0; /* Remove a margem lateral de 80px */
     }
     
     .sobre-img {
         order: -1;
+    }
+
+    .sobre-text {
+        text-align: center;
     }
     
     .servicos-grid {

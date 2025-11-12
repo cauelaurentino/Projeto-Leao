@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -28,25 +27,22 @@
                 </ul>
             </nav>
             
-            <!-- Botão do menu hamburguer -->
             <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
                 <span class="hamburger"></span>
             </button>
         </div>
         
-        <!-- Menu mobile -->
         <nav class="mobile-nav">
             <ul>
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#sobre">Sobre</a></li>
-                <li><a href="agendamentos.html">Meus agendamnetos</a></li>
+                <li><a href="agendamentos.html">Meus agendamentos</a></li>
                 <li><a href="#agendamento" class="btn-agendar">Agendar</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="container hero-content">
             <h2>Estilo e Tradição em Cada Corte</h2>
@@ -55,140 +51,21 @@
         </div>
     </section>
 
-    <!-- Serviços -->
     <section class="servicos" id="servicos">
         <div class="container">
             <div class="section-title">
                 <h2>Nossos Serviços</h2>
             </div>
             <div class="servicos-grid">
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="corte" data-preco="35,00">
-                            <h3>Corte de Cabelo</h3>
-                            <p>Corte moderno ou clássico (40min)</p>
-                            <p class="servico-preco">R$ 35,00</p>
-                        </a>
-                    </div>
                 </div>
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="barba" data-preco="15,00">
-                            <h3>Barba</h3>
-                            <p>Design de sua preferência (30min)</p>
-                            <p class="servico-preco">R$ 35,00</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="sobrancelha" data-preco="25,00">
-                            <h3>Sobrancelha</h3>
-                            <p>Complemente seu visual! (10min)</p>
-                            <p class="servico-preco">R$ 25,00</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="nevou" data-preco="15,00">
-                            <h3>Nevou</h3>
-                            <p>Atualize seu estilo com o nevou! (60min)</p>
-                            <p class="servico-preco">R$ 130,00</p>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="pigmentacao" data-preco="15,00">
-                            <h3>Pigmentação</h3>
-                            <p>Intensifique a coloração do seu cabelo! (20min)</p>
-                            <p class="servico-preco">R$ 15,00</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="corte-infantil" data-preco="15,00">
-                            <h3>Corte Infantil</h3>
-                            <p>Deixe seu pequeno no estilo! (60min)</p>
-                            <p class="servico-preco">R$ 45,00</p>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="luzes" data-preco="55,00">
-                            <h3>Luzes</h3>
-                            <p>Diferencie seu visual! (60min)</p>
-                            <p class="servico-preco">R$ 85,00</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="bigode" data-preco="15,00">
-                            <h3>Bigode</h3>
-                            <p>Deixe seu bigode ajustado! (10min)</p>
-                            <p class="servico-preco">R$ 10,00</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="combo1" data-preco="55,00">
-                            <h3>Combo 1</h3>
-                            <p>Corte de cabelo + Barba + Sobrancelha (60min)</p>
-                            <p class="servico-preco">R$ 70,00</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="combo2" data-preco="55,00">
-                            <h3>Combo 2</h3>
-                            <p>Corte de cabelo + Nevou + Sobrancelha (2hrs)</p>
-                            <p class="servico-preco">R$ 55,00</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="combo3" data-preco="55,00">
-                            <h3>Combo 3</h3>
-                            <p>Corte + Pigmentação + sobrancelha (60min)</p>
-                            <p class="servico-preco">R$ 60,00</p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="servico-card">
-                    <div class="servico-info">
-                        <a class="opcoes" href="#agendamento" data-servico="combo4" data-preco="55,00">
-                            <h3>Combo 4</h3>
-                            <p>Corte de cabelo + Bigode + Sobrancelha (40min)</p>
-                            <p class="servico-preco">R$ 45,00</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Sobre -->
     <section class="sobre" id="sobre">
         <div class="container">
             <div class="sobre-content">
                 <div class="sobre-img">
-                    <img src="img/leaoempe.jpeg" alt="">
+                    <img src="img/leaoempe.jpeg" alt="Interior da Barbearia do Leão">
                 </div>
                 <div class="sobre-text">
                     <h2>Sobre a Barbearia do Leão</h2>
@@ -199,7 +76,6 @@
         </div>
     </section>
 
-    <!-- Agendamento -->
     <section class="agendamento" id="agendamento">
         <div class="container">
             <div class="section-title">
@@ -215,22 +91,23 @@
                         <label for="telefone">Telefone</label>
                         <input type="tel" id="telefone" name="telefone" required>
                     </div>
+
                     <div class="form-group">
                         <label for="servico">Serviço Desejado</label>
                         <select id="servico" name="servico" required>
                             <option value="">Selecione um serviço</option>
-                            <option value="corte">Corte de Cabelo - R$ 35,00</option>
-                            <option value="barba">Barba - R$ 25,00</option>
-                            <option value="sobrancelha">Sobrancelha - R$ 15,00</option>
-                            <option value="nevou">Nevou - R$ 15,00</option>
-                            <option value="pigmentacao">Pigmentação - R$ 15,00</option>
-                            <option value="corte-infantil">Corte Infantil - R$ 15,00</option>
-                            <option value="luzes">Luzes - R$ 85,00</option>
-                            <option value="bigode">Bigode - R$ 15,00</option>
-                            <option value="combo1">Combo 1 - R$ 55,00</option>
-                            <option value="combo2">Combo 2 - R$ 55,00</option>
-                            <option value="combo3">Combo 3 - R$ 55,00</option>
-                            <option value="combo4">Combo 4 - R$ 55,00</option>
+                            <option value="1">Corte de Cabelo - R$ 35,00</option>
+                            <option value="2">Barba - R$ 35,00</option>
+                            <option value="3">Sobrancelha - R$ 25,00</option>
+                            <option value="4">Nevou - R$ 130,00</option>
+                            <option value="5">Pigmentação - R$ 15,00</option>
+                            <option value="6">Corte Infantil - R$ 45,00</option>
+                            <option value="7">Luzes - R$ 85,00</option>
+                            <option value="8">Bigode - R$ 10,00</option>
+                            <option value="9">Combo 1 - R$ 70,00</option>
+                            <option value="10">Combo 2 - R$ 55,00</option>
+                            <option value="11">Combo 3 - R$ 60,00</option>
+                            <option value="12">Combo 4 - R$ 45,00</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -263,7 +140,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contato">
         <div class="container">
             <div class="footer-content">
@@ -285,7 +161,7 @@
                 <div class="footer-section">
                     <h3>Redes Sociais</h3>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/barbearia_doleao_/"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
