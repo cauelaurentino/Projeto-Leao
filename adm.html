@@ -105,22 +105,14 @@
         </footer>
     
     <script>
-<<<<<<< HEAD
         document.addEventListener('DOMContentLoaded', function() {
-=======
-    document.addEventListener('DOMContentLoaded', function() {
->>>>>>> 865ec1020ae50520f8f7db5e0664a5fbc16907a5
         const tokenAdmin = localStorage.getItem('jwt_token');
         if (!tokenAdmin) {
             alert('Acesso negado. Faça login como administrador.');
             window.location.href = 'login.html';
             return;
-<<<<<<< HEAD
             }
         })
-=======
-        }
->>>>>>> 865ec1020ae50520f8f7db5e0664a5fbc16907a5
 
         const authHeader = { 'Authorization': `Bearer ${tokenAdmin}` };
 
@@ -144,11 +136,7 @@
         });
 
         // --- FUNÇÕES DE CARREGAMENTO DE DADOS ---
-<<<<<<< HEAD
-        /* function carregarEstatisticas() {
-=======
         function carregarEstatisticas() {
->>>>>>> 865ec1020ae50520f8f7db5e0664a5fbc16907a5
             fetch('http://localhost:8080/api/admin/estatisticas', { headers: authHeader })
                 .then(response => response.json())
                 .then(stats => {
@@ -239,12 +227,7 @@
         // --- INICIALIZAÇÃO DA PÁGINA ---
         inicializarFiltros();
         carregarEstatisticas();
-<<<<<<< HEAD
-        carregarAgendamentos(filtroAno.value, filtroMes.value); */
-=======
         carregarAgendamentos(filtroAno.value, filtroMes.value);
-    });
->>>>>>> 865ec1020ae50520f8f7db5e0664a5fbc16907a5
     </script>
     
     <script src="script.js"></script>
