@@ -55,11 +55,11 @@
             </div>
             
             <div class="admin-tabs">
-                <button class="tab-button active" data-tab="dashboard">Dashboard</button>
+                <button class="tab-button active" data-tab="financas">Finanças</button>
                 <button class="tab-button" data-tab="agendamentos">Agendamentos</button>
             </div>
 
-            <div id="tab-content-dashboard">
+            <div id="tab-content-financas">
                 <div class="admin-stats">
                     <div class="stat-card">
                         <div class="stat-number" id="ganhos-diarios">R$ 0,00</div>
@@ -105,37 +105,42 @@
         </footer>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
         const tokenAdmin = localStorage.getItem('jwt_token');
         if (!tokenAdmin) {
             alert('Acesso negado. Faça login como administrador.');
             window.location.href = 'login.html';
             return;
-            }
-        })
+        }
 
         const authHeader = { 'Authorization': `Bearer ${tokenAdmin}` };
 
         // Elementos da página
         const tabs = document.querySelectorAll('.tab-button');
-        const contentDashboard = document.getElementById('tab-content-dashboard');
+        const contentFinancas = document.getElementById('tab-content-financas'); // MUDANÇA AQUI
         const contentAgendamentos = document.getElementById('tab-content-agendamentos');
         const tabelaBody = document.querySelector('.agendamentos-table tbody');
         const filtroMes = document.getElementById('filtro-mes');
         const filtroAno = document.getElementById('filtro-ano');
 
-        // --- LÓGICA DAS ABAS ---
+        // --- LÓGICA DAS ABAS ATUALIZADA ---
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
                 tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
+
                 const tabName = tab.getAttribute('data-tab');
-                contentDashboard.style.display = (tabName === 'dashboard') ? 'block' : 'none';
-                contentAgendamentos.style.display = (tabName === 'agendamentos') ? 'block' : 'none';
+                if (tabName === 'financas') { // MUDANÇA AQUI
+                    contentFinancas.style.display = 'block'; // MUDANÇA AQUI
+                    contentAgendamentos.style.display = 'none';
+                } else {
+                    contentFinancas.style.display = 'none'; // MUDANÇA AQUI
+                    contentAgendamentos.style.display = 'block';
+                }
             });
         });
 
-        // --- FUNÇÕES DE CARREGAMENTO DE DADOS ---
+        // --- FUNÇÕES DE CARREGAMENTO DE DADOS (Sem alteração) ---
         function carregarEstatisticas() {
             fetch('http://localhost:8080/api/admin/estatisticas', { headers: authHeader })
                 .then(response => response.json())
@@ -181,13 +186,12 @@
                 .catch(error => console.error('Falha na página de admin:', error.message));
         }
 
-        // --- NOVA LÓGICA INTELIGENTE DOS FILTROS ---
+        // --- LÓGICA DOS FILTROS (Sem alteração) ---
         function inicializarFiltros() {
             const hoje = new Date();
             const anoAtual = hoje.getFullYear();
-            const mesAtual = hoje.getMonth() + 1; // getMonth() é 0-11
+            const mesAtual = hoje.getMonth() + 1;
 
-            // Popula o filtro de ano (ano atual e 4 anos anteriores)
             for (let i = 0; i < 5; i++) {
                 const ano = anoAtual - i;
                 filtroAno.innerHTML += `<option value="${ano}">${ano}</option>`;
@@ -196,7 +200,7 @@
             const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
             
             function popularFiltroMes(anoSelecionado) {
-                filtroMes.innerHTML = ''; // Limpa as opções anteriores
+                filtroMes.innerHTML = '';
                 const limiteDeMeses = (parseInt(anoSelecionado) === anoAtual) ? mesAtual : 12;
 
                 for (let i = 0; i < limiteDeMeses; i++) {
@@ -204,21 +208,17 @@
                 }
             }
             
-            // Evento para quando o ANO muda
             filtroAno.addEventListener('change', () => {
                 const anoSelecionado = filtroAno.value;
                 popularFiltroMes(anoSelecionado);
-                // Define o mês para o mais recente disponível e carrega os dados
                 filtroMes.value = filtroMes.options[filtroMes.options.length - 1].value;
                 carregarAgendamentos(anoSelecionado, filtroMes.value);
             });
 
-            // Evento para quando o MÊS muda
             filtroMes.addEventListener('change', () => {
                 carregarAgendamentos(filtroAno.value, filtroMes.value);
             });
             
-            // Inicializa com os valores atuais
             filtroAno.value = anoAtual;
             popularFiltroMes(anoAtual);
             filtroMes.value = mesAtual;
@@ -228,6 +228,7 @@
         inicializarFiltros();
         carregarEstatisticas();
         carregarAgendamentos(filtroAno.value, filtroMes.value);
+    });
     </script>
     
     <script src="script.js"></script>

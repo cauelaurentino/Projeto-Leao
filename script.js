@@ -29,17 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (desktopNavUl && mobileNavUl) {
         if (token && userRole === 'ADMIN') {
-            // Se for ADMIN, mostra o menu de administrador
+            // INÍCIO DA ALTERAÇÃO: Menu do Admin agora tem apenas "Sair"
             desktopNavUl.innerHTML = `
-                <li><a href="adm.html">Todos Agendamentos</a></li>
-                <li><a href="adm.html">Finanças</a></li>
                 <li><a href="#" id="btn-sair" class="btn-agendar">Sair</a></li>
             `;
             mobileNavUl.innerHTML = `
-                <li><a href="adm.html">Todos Agendamentos</a></li>
-                <li><a href="adm.html">Finanças</a></li>
                 <li><a href="#" id="btn-sair-mobile" class="btn-agendar">Sair</a></li>
             `;
+            // FIM DA ALTERAÇÃO
+
         } else if (token) {
             // Se estiver logado mas for CLIENTE
             desktopNavUl.innerHTML = `
@@ -66,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
             function logout(event) {
                 event.preventDefault();
                 localStorage.removeItem('jwt_token');
-                localStorage.removeItem('user_role'); // REMOVE O PERFIL TAMBÉM
+                localStorage.removeItem('user_role');
                 alert('Você saiu da sua conta.');
                 window.location.href = 'login.html';
             }
@@ -94,17 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                // PASSO CRÍTICO: Guardar o token E O PERFIL no armazenamento local
                 localStorage.setItem('jwt_token', data.token);
                 localStorage.setItem('user_role', data.role);
-
                 alert('Login realizado com sucesso!');
-
-                // Redirecionamento condicional
                 if (data.role === 'ADMIN') {
-                    window.location.href = 'adm.html'; // Admin vai para a página de admin
+                    window.location.href = 'adm.html';
                 } else {
-                    window.location.href = 'index.html'; // Cliente vai para a página inicial
+                    window.location.href = 'index.html';
                 }
             })
             .catch(error => alert(error.message));
